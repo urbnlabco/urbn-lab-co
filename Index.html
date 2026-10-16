@@ -3,138 +3,397 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="URBN LAB Co — Curated sneakers and streetwear.">
+
+  <meta name="description" content="URBN LAB Co — Curated sneakers and streetwear. Discover your next pair.">
+
   <title>URBN LAB Co | Your Rotation, Redefined</title>
+
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --paper: #f5f5f2;
+      --accent: #c7fa62;
+      --grey: #777777;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f2;
-      color: #171717;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--black);
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .announcement {
+      padding: 10px;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 24px 6%;
-      border-bottom: 1px solid #ddd;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 6%;
+      background: var(--white);
+      border-bottom: 1px solid #e5e5e5;
     }
+
     .logo {
-      font-weight: 900;
-      font-size: 24px;
-      letter-spacing: -1px;
+      width: 155px;
+      height: auto;
     }
-    nav a {
-      margin-left: 20px;
-      color: #171717;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
+
+    nav a:hover {
+      color: #648c19;
+    }
+
     .hero {
-      padding: 100px 8%;
-      background: #171717;
-      color: white;
+      position: relative;
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
     }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .hero-caption {
+      padding: 35px 7% 45px;
+      text-align: center;
+    }
+
     .eyebrow {
-      color: #c7fa62;
+      font-size: 10px;
+      font-weight: 800;
       letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
+      text-transform: uppercase;
     }
-    h1 {
-      max-width: 750px;
-      font-size: clamp(48px, 9vw, 100px);
+
+    .hero h1 {
+      margin: 18px 0;
+      font-size: clamp(36px, 7vw, 76px);
       line-height: .95;
-      letter-spacing: -5px;
-      margin: 24px 0;
+      letter-spacing: -3px;
     }
+
     .hero p {
-      color: #ccc;
-      line-height: 1.7;
-      max-width: 420px;
+      max-width: 460px;
+      margin: 0 auto;
+      color: #cccccc;
+      font-size: 14px;
+      line-height: 1.8;
     }
+
     .button {
       display: inline-block;
-      margin-top: 24px;
-      padding: 16px 24px;
-      background: #c7fa62;
-      color: #171717;
-      font-weight: bold;
-      text-decoration: none;
+      margin-top: 25px;
+      padding: 16px 25px;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
     }
-    section { padding: 60px 8%; }
-    .products {
+
+    .section {
+      padding: 75px 7%;
+    }
+
+    .section-heading {
+      margin: 12px 0 35px;
+      font-size: clamp(30px, 5vw, 48px);
+      letter-spacing: -2px;
+    }
+
+    .collections {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
-    .product {
-      background: white;
-      padding: 24px;
-      min-height: 170px;
+
+    .collection {
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px;
+      background: var(--black);
+      color: var(--white);
     }
-    .product h3 { margin-bottom: 8px; }
-    .product p { color: #666; font-size: 14px; }
-    footer {
-      padding: 28px 8%;
-      background: #171717;
-      color: white;
+
+    .collection:nth-child(2) {
+      background: #303030;
+    }
+
+    .collection:nth-child(3) {
+      background: #555555;
+    }
+
+    .collection h3 {
+      margin: 0 0 8px;
+      font-size: 23px;
+    }
+
+    .collection p {
+      margin: 0;
+      color: #cccccc;
       font-size: 12px;
+      line-height: 1.6;
     }
+
+    .collection a {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .about {
+      background: #e9e9e4;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin: 18px 0;
+      font-size: clamp(30px, 5vw, 50px);
+      letter-spacing: -2px;
+    }
+
+    .about p {
+      max-width: 600px;
+      margin: auto;
+      color: #555555;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    footer {
+      padding: 45px 7% 25px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding-bottom: 30px;
+    }
+
+    .footer-logo {
+      width: 125px;
+    }
+
+    .footer-note {
+      color: #aaaaaa;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid #333333;
+      color: #888888;
+      font-size: 10px;
+    }
+
     @media (max-width: 650px) {
-      header { padding: 20px; }
-      nav a { margin-left: 10px; font-size: 11px; }
-      .hero { padding: 75px 7%; }
-      h1 { letter-spacing: -2px; }
-      .products { grid-template-columns: 1fr; }
+      header {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        width: 115px;
+      }
+
+      nav {
+        gap: 12px;
+        font-size: 9px;
+      }
+
+      .hero-caption {
+        padding: 30px 6% 40px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .section {
+        padding: 55px 6%;
+      }
+
+      .collections {
+        grid-template-columns: 1fr;
+      }
+
+      .collection {
+        min-height: 170px;
+      }
+
+      .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <div class="announcement">
+    URBN LAB CO. &nbsp; / &nbsp; SNEAKERS. STREET CULTURE. EVERYDAY STYLE.
+  </div>
+
   <header>
-    <div class="logo">URBN LAB<span style="color:#8bbd28">.</span></div>
+    <a href="#" aria-label="URBN LAB Co homepage">
+      <img
+        class="logo"
+        src="assets/Urbn-lab-log-black.png"
+        alt="URBN LAB Co"
+      >
+    </a>
+
     <nav>
-      <a href="#collections">SHOP</a>
-      <a href="#about">ABOUT</a>
+      <a href="#collections">COLLECTIONS</a>
+      <a href="#about">OUR STORY</a>
+      <a href="mailto:hello@urbnlab.co">CONTACT</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="eyebrow">FOOTWEAR · STREET CULTURE · EVERYDAY STYLE</div>
-      <h1>YOUR ROTATION.<br>REDEFINED.</h1>
-      <p>Curated sneakers. Everyday essentials. Built around the culture.</p>
-      <a class="button" href="#collections">EXPLORE THE COLLECTION ↗</a>
-    </section>
 
-    <section id="collections">
-      <div class="eyebrow" style="color:#648c19">THE COLLECTIONS</div>
-      <h2>Find your next pair.</h2>
-      <div class="products">
-        <article class="product">
-          <h3>Jordan Collection</h3>
-          <p>Iconic silhouettes. Timeless culture.</p>
-        </article>
-        <article class="product">
-          <h3>Air Force 1</h3>
-          <p>An everyday essential.</p>
-        </article>
-        <article class="product">
-          <h3>Nike SB</h3>
-          <p>Skate heritage meets street style.</p>
-        </article>
+    <section class="hero">
+      <img
+        src="assets/Urbn-lab-banner.png"
+        alt="URBN LAB Co sneaker collection and brand banner"
+      >
+
+      <div class="hero-caption">
+        <div class="eyebrow">Footwear / Street Culture / Individual Style</div>
+
+        <h1>YOUR ROTATION.<br>REDEFINED.</h1>
+
+        <p>
+          Curated sneakers. Everyday essentials.
+          A fresh perspective on street culture.
+        </p>
+
+        <a class="button" href="#collections">
+          EXPLORE THE COLLECTION &nbsp; ↗
+        </a>
       </div>
     </section>
 
-    <section id="about">
-      <div class="eyebrow" style="color:#648c19">ABOUT URBN LAB</div>
-      <h2>Less noise. Better choices.</h2>
-      <p>URBN LAB Co is being built for people who appreciate sneakers, streetwear and individual style.</p>
+    <section class="section" id="collections">
+      <div class="eyebrow">Discover URBN LAB</div>
+
+      <h2 class="section-heading">Find your next pair.</h2>
+
+      <div class="collections">
+
+        <article class="collection">
+          <h3>Jordan Collection</h3>
+          <p>Iconic silhouettes. Timeless culture.</p>
+          <a href="mailto:hello@urbnlab.co?subject=Jordan%20Collection">
+            EXPLORE ↗
+          </a>
+        </article>
+
+        <article class="collection">
+          <h3>Air Force 1</h3>
+          <p>An everyday essential. A lasting classic.</p>
+          <a href="mailto:hello@urbnlab.co?subject=Air%20Force%201">
+            EXPLORE ↗
+          </a>
+        </article>
+
+        <article class="collection">
+          <h3>Nike SB</h3>
+          <p>Skate heritage meets street style.</p>
+          <a href="mailto:hello@urbnlab.co?subject=Nike%20SB">
+            EXPLORE ↗
+          </a>
+        </article>
+
+      </div>
     </section>
+
+    <section class="section about" id="about">
+      <div class="eyebrow">The URBN LAB Perspective</div>
+
+      <h2>Less noise.<br>More culture.</h2>
+
+      <p>
+        URBN LAB Co is being built for people who appreciate sneakers,
+        streetwear and individual style. Our focus is on curated footwear
+        and a distinctive urban aesthetic, with more collections to come.
+      </p>
+    </section>
+
   </main>
 
-  <footer>© 2026 URBN LAB Co. ALL RIGHTS RESERVED.</footer>
+  <footer>
+    <div class="footer-top">
+      <img
+        class="footer-logo"
+        src="assets/Urbn-lab-log-white.png"
+        alt="URBN LAB Co"
+      >
+
+      <div class="footer-note">
+        SNEAKERS. STREET CULTURE. EVERYDAY STYLE.<br>
+        Thailand / International ambitions
+      </div>
+    </div>
+
+    <div class="copyright">
+      © <span id="year">2026</span> URBN LAB Co. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
